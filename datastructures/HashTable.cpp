@@ -26,10 +26,11 @@ private:
 
     int cantElem;
 
-    int hash(string key){
+    
+    int hash(string key) {
         int h = 0;
         for (int i = 0; i < key.length(); i++)
-            h = h + key[i];
+            h = 31 * h + int(key[i]);
         return h;
     }
 
@@ -71,7 +72,7 @@ private:
     bool existRec(int i, string key)
     {
         int bucket = getBucket(key, i);
-        if (arr[bucket] == NULL && aux[bucket]==false)
+        if (arr[bucket] == NULL)
         {
             return false;
         }

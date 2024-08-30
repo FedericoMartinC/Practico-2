@@ -14,15 +14,16 @@ int main()
     for (int i=0;i<N;i++){
         string key;
         cin >> key;
-        if(tabla->exist(key)){
-            if(tabla->get(key)==1){
-                devuelvo++;
-            }else if (tabla->get(key)>1){
-                devuelvo--;
+        if(tabla->exist(key)==true){
+            int oc=tabla->get(key);
+            if(oc==1){
+                devuelvo=devuelvo+1;
+            }else if (oc==2){
+                devuelvo=devuelvo-1;
             }
         }
         tabla->add(key,1);
     }
-    cout << devuelvo << endl;
+    cout << devuelvo ;
     return 0;
 }
